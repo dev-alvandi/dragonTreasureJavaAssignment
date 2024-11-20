@@ -1,5 +1,5 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashMap;        //kommentar från Marianne: Behöver vi dom två importen här? Använder vi dom i klassen?
+import java.util.Map;            //kommentar från Marianne: Behöver vi setters på position och destination?
 
 public class Door {
 
