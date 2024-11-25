@@ -7,6 +7,7 @@ public class Dungeon {
     private Room currentRoom;
     private String welcomeMessage;
     private List<String> directions = new ArrayList<>(List.of("ö", "n", "s", "v"));
+    private boolean isInfineLoop = true;
 
     private boolean playerHasEnteredARoom;
 
@@ -33,7 +34,7 @@ public class Dungeon {
         System.out.println("Grottöppningen är österut. Skriv \"ö\" och tryck på [Enter] för att komma in i grottan");
 
 
-        while (true) {
+        while (isInfineLoop) {
             String nextDirection = scanner.nextLine().toLowerCase();
             playerHasEnteredARoom = false;
 
@@ -45,17 +46,19 @@ public class Dungeon {
 
             if (currentRoom == dragonTreasure.getRooms().get(3) && nextDirection.equals("ö")) {
                 System.out.println("Du lämnar grottan med livet i behåll. Grattis, du förlorade inte!");
+                isInfineLoop = false;
                 break;
             }
 
             for (Door door : currentRoom.getDoors()) {
 
-                if (door.getPosition().equals(nextDirection) && !door.isLocked()) {
+                if ((door.getPosition().equals(nextDirection) && !door.isLocked()) ||
+                        (door.getPosition().equals(nextDirection) && door.isLocked() && player.getInventory().contains(RoomProperty.KEY.toString()))) {
                     currentRoom = door.getDestination();
                     System.out.println(currentRoom.getRoomDesc());
                     currentRoom.doNarrative();
                     playerHasEnteredARoom = true;
-                } else if (door.getPosition().equals(nextDirection) && door.isLocked()) {
+                } else if (door.getPosition().equals(nextDirection) && door.isLocked() && !player.getInventory().contains(RoomProperty.KEY.toString())) {
                     System.out.println("Du har ingen nyckel som passar.\n" +
                             "Du kikar genom nyckelhålet och ser en skattkista full med guld.\n" +
                             "                  _.--.\n"+
