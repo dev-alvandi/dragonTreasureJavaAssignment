@@ -14,24 +14,12 @@ public class Door {
         return position;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
     public boolean isLocked() {
         return locked;
     }
 
-    public void setLocked(boolean locked) {
-        this.locked = locked;
-    }
-
     public Room getDestination() {
         return destination;
-    }
-
-    public void setDestination(Room destination) {
-        this.destination = destination;
     }
 
     @Override
