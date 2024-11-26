@@ -12,4 +12,4 @@
    * #### Programmet avslutas kontrollerat när spelaren skriver "q".
 ### 5. Spelets struktur
    * #### Rummen och dörrarna är fördefinierade i `setupGame()` metoden.
-   * #### Spelet har ett start-rum och ett slutrum.
+   * #### Spelet har ett start-rum och ett slutrum. (Edited)
