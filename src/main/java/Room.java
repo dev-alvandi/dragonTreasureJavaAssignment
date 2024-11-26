@@ -3,6 +3,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * * Class for constructing the rooms, and for displaying
+ * * the narrative for the doors of the current room.
+ */
+
 public class Room {
 
     public static Map<String, String> letterToDirection = new HashMap<>();
@@ -18,6 +23,7 @@ public class Room {
     private List<RoomProperty> roomProperties;
     private List<Door> doors;
 
+    // constructor initializing with room description and room name(property)
     public Room(String roomDesc, List<RoomProperty> roomProperties) {
         this.roomDesc = roomDesc;
         this.roomProperties = roomProperties;
