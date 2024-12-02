@@ -15,16 +15,21 @@ public class Dungeon {
                 "Skriv ditt namn och tryck på [Enter] för att starta ett nytt spel...";
     }
 
+    // set up the game
     public void playGame() {
+        // create and initialize DragonTreasure object
         DragonTreasure dragonTreasure = new DragonTreasure();
+        // create the rooms, which are stored in an array list
         dragonTreasure.setupGame();
 
         currentRoom = dragonTreasure.getRooms().get(0);
 
         System.out.println(welcomeMessage);
 
+        // create scanner object for reading name and directions
         Scanner scanner = new Scanner(System.in);
 
+        // initialize player with scanner input from player
         Player player = new Player(scanner.nextLine());
         currentRoom = dragonTreasure.getRooms().get(0);
 
@@ -32,7 +37,7 @@ public class Dungeon {
         System.out.println("Du står utanför en grotta. Det luktar svavel från öppningen");
         System.out.println("Grottöppningen är österut. Skriv \"ö\" och tryck på [Enter] för att komma in i grottan");
 
-
+        // game runs until the player chooses the exit door/room
         while (true) {
             String nextDirection = scanner.nextLine().toLowerCase();
             playerHasEnteredARoom = false;
@@ -43,6 +48,7 @@ public class Dungeon {
                 continue;
             }
 
+            // end the game when player chooses the exit door
             if (currentRoom == dragonTreasure.getRooms().get(3) && nextDirection.equals("ö")) {
                 System.out.println("Du lämnar grottan med livet i behåll. Grattis, du förlorade inte!");
                 break;
@@ -82,11 +88,11 @@ public class Dungeon {
                 }
             }
 
+            // error message if player chooses wrong direction
             if (!playerHasEnteredARoom) {
                 System.out.println("Du har gått in i fel riktning. Försök igen!");
                 continue;
             }
-
 
             // Backdoor to end the program - can be removed later on before submission
             if (nextDirection.equals("q")) {
