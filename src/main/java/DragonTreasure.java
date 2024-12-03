@@ -2,11 +2,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * * Class that sets up the Dragon Treasure Game
- * * @author Noah
- */
-
 public class DragonTreasure {
 
     private List<Room> rooms = new ArrayList<>();

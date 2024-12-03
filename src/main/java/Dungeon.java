@@ -42,6 +42,11 @@ public class Dungeon {
             String nextDirection = scanner.nextLine().toLowerCase();
             playerHasEnteredARoom = false;
 
+            // Backdoor to end the program - can be removed later on before submission
+            if (nextDirection.equals("q")) {
+                break;
+            }
+
             // Felhantering av indata från användaren
             if (!directions.contains(nextDirection)) {
                 System.out.println("Du får bara skriva en av dessa fyra bokstäver för att navigera genom rum, nämligen \"ö\", \"v\", \"s\", eller \"n\". Försök igen!");
@@ -94,10 +99,7 @@ public class Dungeon {
                 continue;
             }
 
-            // Backdoor to end the program - can be removed later on before submission
-            if (nextDirection.equals("q")) {
-                break;
-            }
+
         }
     }
 }
