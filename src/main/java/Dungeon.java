@@ -47,7 +47,7 @@ public class Dungeon {
                 break;
             }
 
-            // Felhantering av indata från användaren
+            // Giving an error message in case user does not use one of 4 directions.
             if (!directions.contains(nextDirection)) {
                 System.out.println("Du får bara skriva en av dessa fyra bokstäver för att navigera genom rum, nämligen \"ö\", \"v\", \"s\", eller \"n\". Försök igen!");
                 continue;
