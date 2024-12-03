@@ -1,17 +1,23 @@
+/**
+ * * Class for setting up the rooms and doors.
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class DragonTreasure {
 
+    // instance variable - empty list for room descriptions
     private List<Room> rooms = new ArrayList<>();
 
+    // method for retrieving the rooms
     public List<Room> getRooms() {
         return rooms;
     }
 
     public void setupGame() {
-        // Setting up rooms
+        // setting up room descriptions
         Room beginningRoom = new Room("Du börjar spelet härifrån", List.of(RoomProperty.START));
         Room lightRoom = new Room("När du går in i grottan kollapsar ingången bakom dig.\nRummet är upplyst av några ljus som sitter på ett bord framför dig.", null);
         Room swordRoom = new Room("Du ser en död kropp på golvet.", List.of(RoomProperty.SWORD));
@@ -30,6 +36,7 @@ public class DragonTreasure {
         keyRoom.setDoors(List.of(new Door("n", false, lightRoom), new Door("ö", false, potionRoom)));
         treasureRoom.setDoors(List.of(new Door("v", false, potionRoom)));
 
+        // add room descriptions to ArrayList
         rooms.addAll(Arrays.asList(
                 beginningRoom,
                 lightRoom,
