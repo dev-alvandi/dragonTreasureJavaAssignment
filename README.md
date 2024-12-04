@@ -1,12 +1,12 @@
 # Antaganden
 ### 1. Klasser 
 #### Room Property
-   * #### Klassen skapades för att bla bla Noah :)
+   * #### Enum används för att skilja mellan olika rum.
    * #### Rummen kan ha olika egenskaper definierade med `RoomProperty`, t.ex., `MONSTER`, `TREASURE`, `START`, och `END`.
    * #### Slutrummet (`END`) avslutar spelet när spelaren når det.
 
 #### Main
-* #### Egen main för att bla bla Noah :)
+* #### Egen main-klass används för att öka läsbarheten i koden genom att skapa en instans av Dungeon-klassen och anropa metoden playGame().
 
 
 ### 2. Felhantering
