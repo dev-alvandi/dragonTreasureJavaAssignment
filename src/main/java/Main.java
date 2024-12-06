@@ -1,7 +1,7 @@
 
 /**
  * * Class for running the game.
- *
+ * Group 2:
  * @author Noah Alvandi
  * @author Diana Guarda Canet
  * @author Marianne Selnæs
