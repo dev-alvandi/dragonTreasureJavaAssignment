@@ -1,6 +1,11 @@
 
 /**
  * * Class for running the game.
+ *
+ * @author Noah Alvandi
+ * @author Diana Guarda Canet
+ * @author Marianne Selnæs
+ * @author Therese Danley
  */
 
 public class Main {

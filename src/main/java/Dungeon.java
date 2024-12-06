@@ -13,7 +13,6 @@ public class Dungeon {
     private Room currentRoom;
     private String welcomeMessage;
     private List<String> directions = new ArrayList<>(List.of("ö", "n", "s", "v"));
-
     private boolean playerHasEnteredARoom;
 
     // constructor initializing the dungeon along with a welcome message
@@ -47,10 +46,13 @@ public class Dungeon {
 
         // game runs until the player chooses the exit door/room
         while (true) {
+            // Convert input to lowercase to simplify comparison logic
             String nextDirection = scanner.nextLine().toLowerCase();
+
+            // At this point player has not entered the chosen room
             playerHasEnteredARoom = false;
 
-            // backdoor to end the program early
+            // User may exit the program using q or Q
             if (nextDirection.equals("q")) {
                 break;
             }
@@ -62,7 +64,7 @@ public class Dungeon {
             }
 
             // end the game when player chooses the exit door
-            if (currentRoom == dragonTreasure.getRooms().get(3) && nextDirection.equals("ö")) {
+            if (currentRoom.equals(dragonTreasure.getRooms().get(3)) && nextDirection.equals("ö")) {
                 System.out.println("Du lämnar grottan med livet i behåll. Grattis, du förlorade inte!");
                 break;
             }
@@ -76,6 +78,7 @@ public class Dungeon {
                     System.out.println(currentRoom.getRoomDesc());
                     currentRoom.doNarrative();
                     playerHasEnteredARoom = true;
+
                 // or if player chooses a locked door, then show picture and reprint current room narrative
                 } else if (door.getPosition().equals(nextDirection) && door.isLocked()) {
                     System.out.println("Du har ingen nyckel som passar.\n" +
@@ -104,13 +107,11 @@ public class Dungeon {
                 }
             }
 
-            // error message if player chooses wrong direction
+            // Exception is thrown if player chooses wrong direction
             if (!playerHasEnteredARoom) {
                 System.out.println("Du har gått in i fel riktning. Försök igen!");
                 continue;
             }
-
-
         }
     }
 }

@@ -11,4 +11,4 @@
 
 ### 2. Felhantering
    * #### Ogiltiga kommandon/riktning resulterar i ett felmeddelande.
-   * #### Programmet avslutas kontrollerat när spelaren skriver "q".
+   * #### Programmet avslutas kontrollerat när spelaren skriver "q" eller "Q".
